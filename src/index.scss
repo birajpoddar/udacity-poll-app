@@ -1,0 +1,55 @@
+// Bootrap
+@import '~bootstrap/scss/bootstrap';
+@import './override.scss';
+
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-image: url('../public/images/background.jpg');
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+
+#loginPanel {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	flex-direction: row;
+	min-height: 100vh;
+	align-content: center;
+	// align-items: center;
+	// position: absolute;
+	// width: 500px;
+	// height: 500px;
+	background-image: linear-gradient(rgba(0, 0, 255, 0.2), rgba(0, 255, 0, 0.2));
+
+	#back {
+		// position: relative;
+		// top: -5px;
+		// left: 255px;
+
+		width: 510px !important;
+		height: 510px !important;
+		background-image: radial-gradient(
+			rgba(0, 0, 0, 0.241),
+			rgba(0, 0, 0, 0.602)
+		);
+		filter: blur(10px);
+		z-index: -1;
+	}
+
+	#login-header {
+		position: relative;
+	}
+}
+
+.pollButton {
+	background-color: aliceblue;
+}
