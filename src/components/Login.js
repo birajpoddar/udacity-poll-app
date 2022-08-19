@@ -1,20 +1,29 @@
 import { connect } from 'react-redux';
-import { logInUser } from '../actions/authedUser';
-import users from '../reducers/users';
+import { validateLogin } from '../actions/authedUser';
+import { _getUsers } from '../utils/_DATA';
 import CustomButton from './presentation/CustomButton';
 import CustomInput from './presentation/CustomInput';
 
 const Login = (props) => {
-	const validateUser = () => {
+	const invalidateUser = () => {
+		// Clear entered values
+		document.getElementById('inputUser').value = '';
+		document.getElementById('inputPass').value = '';
+
+		// Show Error Message
+		const valEl = document.getElementById('validation-message');
+		valEl.classList.remove('alert-light');
+		valEl.classList.remove('hide-background');
+		valEl.classList.add('alert-danger');
+		valEl.innerText = "Credentials doesn't match. Please try again.";
+	};
+
+	const loginUser = () => {
 		const user = document.getElementById('inputUser').value;
 		const pass = document.getElementById('inputPass').value;
 
-		if (
-			props.users[user] !== undefined &&
-			props.users[user].password === pass
-		) {
-			props.dispatch(logInUser(user));
-		}
+		const users = props.users;
+		props.dispatch(validateLogin({ user, pass, users }, invalidateUser));
 	};
 
 	return (
@@ -24,21 +33,29 @@ const Login = (props) => {
 					<h1 className="display-6 text-uppercase">Employee Poll Login</h1>
 				</div>
 				<div className="card-body">
+					<div
+						id="validation-message"
+						className="alert alert-light text-center hide-background"
+						role="alert"
+					>
+						{' '}
+					</div>
 					<CustomInput title="☺︎" id="inputUser" placeholder="Username" />
 					<CustomInput
-						title="✽"
+						title="✲"
 						id="inputPass"
 						placeholder="Password"
 						type="password"
 					/>
-					<CustomButton placeholder="LOGIN" click={validateUser} />
+					<CustomButton placeholder="LOGIN" click={loginUser} />
 				</div>
 			</div>
 		</div>
 	);
 };
 
-export default connect((state) => ({
-	authUser: state.authUser,
-	users: state.users,
-}))(Login);
+export default connect((state) => {
+	return {
+		users: state.users,
+	};
+})(Login);

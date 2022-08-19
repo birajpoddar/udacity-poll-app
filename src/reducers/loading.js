@@ -1,12 +1,9 @@
 import { LOAD_DATA } from '../actions/constants';
 
-export default function users(state = {}, action) {
+export default function loading(state = false, action) {
 	switch (action.type) {
 		case LOAD_DATA:
-			return {
-				...state,
-				...action.users,
-			};
+			return true;
 		default:
 			return state;
 	}

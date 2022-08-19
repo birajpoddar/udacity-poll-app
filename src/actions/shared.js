@@ -1,10 +1,12 @@
-import { _getUsers, _getQuestions } from '../utils/_DATA';
+import { _getQuestions } from '../utils/_DATA';
+import { _getFormattedUsers } from '../utils/dataFormatter';
 import { LOAD_DATA } from './constants';
 
 export function loadData() {
 	return (dispatch) => {
-		return Promise.all([_getUsers(), _getQuestions()]).then(
+		return Promise.all([_getFormattedUsers(), _getQuestions()]).then(
 			([users, polls]) => {
+				// dispatch(loadUsers(users))
 				dispatch(loadInitialData(users, polls));
 			}
 		);
@@ -17,5 +19,6 @@ function loadInitialData(users, polls) {
 		users,
 		polls,
 		authedUser: null,
+		loading: true,
 	};
 }

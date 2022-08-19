@@ -1,0 +1,57 @@
+// New Classes for styling
+
+.opacity-100 {
+	--bs-bg-opacity: 1;
+}
+
+.opacity-90 {
+	--bs-bg-opacity: 0.9;
+}
+
+.opacity-80 {
+	--bs-bg-opacity: 0.8;
+}
+
+.opacity-70 {
+	--bs-bg-opacity: 0.7;
+}
+
+.opacity-60 {
+	--bs-bg-opacity: 0.6;
+}
+
+.opacity-50 {
+	--bs-bg-opacity: 0.5;
+}
+
+.opacity-40 {
+	--bs-bg-opacity: 0.4;
+}
+
+.opacity-30 {
+	--bs-bg-opacity: 0.3;
+}
+
+.opacity-20 {
+	--bs-bg-opacity: 0.2;
+}
+
+.opacity-10 {
+	--bs-bg-opacity: 0.1;
+}
+
+.opacity-0 {
+	--bs-bg-opacity: 0;
+}
+
+// Hide validation error
+.hide-background {
+	border: unset;
+	background: unset;
+}
+
+// Blurred background
+.blurred-light {
+	background-color: #ffffffaa;
+	backdrop-filter: blur(20px);
+}

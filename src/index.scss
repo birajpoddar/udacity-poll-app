@@ -1,6 +1,7 @@
 // Bootrap
 @import '~bootstrap/scss/bootstrap';
 @import './override.scss';
+@import './styles.scss';
 
 body {
 	margin: 0;
@@ -28,7 +29,7 @@ code {
 	// position: absolute;
 	// width: 500px;
 	// height: 500px;
-	background-image: linear-gradient(rgba(0, 0, 255, 0.2), rgba(0, 255, 0, 0.2));
+	// background-image: linear-gradient(rgba(0, 0, 255, 0.2), rgba(0, 255, 0, 0.2));
 
 	#back {
 		// position: relative;
