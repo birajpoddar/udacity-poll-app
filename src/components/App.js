@@ -8,6 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 import Header from './Header';
 import NewPoll from './NewPoll';
 import Leaderboard from './Leaderboard';
+import PageNotFound from './presentation/PageNotFound';
 
 // bootstrap
 
@@ -51,6 +52,14 @@ const App = (props) => {
 							<Fragment>
 								<Header />
 								<Leaderboard />
+							</Fragment>
+						}
+					/>
+					<Route
+						path="*"
+						element={
+							<Fragment>
+								<PageNotFound />
 							</Fragment>
 						}
 					/>

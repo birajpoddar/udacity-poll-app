@@ -1,17 +1,17 @@
 import { _saveQuestion } from '../utils/_DATA';
 import { NEW_POLL } from './constants';
 
-export const savePoll = ({ optionOneText, optionTwoText, author }) => {
+export const handleNewPoll = ({ optionOneText, optionTwoText, author }) => {
 	const question = { optionOneText, optionTwoText, author };
 
 	return (dispatch) => {
 		_saveQuestion(question).then((poll) => {
-			dispatch(savePollToState(poll));
+			dispatch(addPollToState(poll));
 		});
 	};
 };
 
-const savePollToState = (poll) => {
+const addPollToState = (poll) => {
 	return {
 		type: NEW_POLL,
 		poll,

@@ -51,9 +51,9 @@
 }
 
 // Blurred background
-.blurred-light {
-	background-color: #ffffffaa;
-	backdrop-filter: blur(20px);
+.blurred-light-10 {
+	background-color: #ffffffaa !important;
+	backdrop-filter: var(--blur-10);
 }
 
 // Text underline

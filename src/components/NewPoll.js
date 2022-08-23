@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { savePoll } from '../actions/polls';
+import { handleNewPoll } from '../actions/polls';
 
 const NewPoll = (props) => {
 	const [option1, setOption1] = useState('');
@@ -41,7 +41,7 @@ const NewPoll = (props) => {
 		e.preventDefault();
 
 		props.dispatch(
-			savePoll({
+			handleNewPoll({
 				optionOneText: option1,
 				optionTwoText: option2,
 				author: props.id,

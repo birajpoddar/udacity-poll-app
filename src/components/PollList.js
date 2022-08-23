@@ -27,9 +27,10 @@ const PollList = (props) => {
 	);
 };
 
-export default connect(({ polls }, { includePolls }) => {
+export default connect(({ polls }, { excludedPolls }) => {
+	// Remove excluded polls
 	const copyPolls = JSON.parse(JSON.stringify(polls));
-	includePolls.forEach((p) => {
+	excludedPolls.forEach((p) => {
 		delete copyPolls[p];
 	});
 

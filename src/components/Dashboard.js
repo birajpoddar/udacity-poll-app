@@ -1,13 +1,11 @@
 import { connect } from 'react-redux';
-import { logoutUser } from '../actions/authedUser';
 import PollList from './PollList';
-import Header from './Header';
 
 const Dashboard = (props) => {
 	return (
 		<div>
-			<PollList title="Unanswered Polls" includePolls={props.undone} />
-			<PollList title="Answered Polls" includePolls={props.done} />
+			<PollList title="Unanswered Polls" excludedPolls={props.done} />
+			<PollList title="Answered Polls" excludedPolls={props.undone} />
 		</div>
 	);
 };

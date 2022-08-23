@@ -1,8 +1,7 @@
 // Bootstrap Overrided Styling
 
 .card {
-	background-color: #ffffffaa;
-	backdrop-filter: blur(20px);
+	@extend .blurred-light-10;
 }
 
 .input-group-text {
@@ -10,8 +9,7 @@
 }
 
 .bg-light {
-	--bs-bg-opacity: 0.6;
-	backdrop-filter: blur(12px);
+	@extend .blurred-light-10;
 }
 
 img.navbar-brand {
