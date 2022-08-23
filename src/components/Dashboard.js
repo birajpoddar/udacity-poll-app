@@ -1,26 +1,24 @@
 import { connect } from 'react-redux';
 import { logoutUser } from '../actions/authedUser';
-import Header from './presentation/Header';
+import PollList from './PollList';
+import Header from './Header';
 
 const Dashboard = (props) => {
-	const logout = () => {
-		props.dispatch(logoutUser());
-	};
-
 	return (
 		<div>
-			<Header
-				avatar={props.authedUser.avatarURL}
-				name={props.authedUser.name}
-				logout={logout}
-			/>
+			<PollList title="Unanswered Polls" includePolls={props.undone} />
+			<PollList title="Answered Polls" includePolls={props.done} />
 		</div>
 	);
 };
 
-export default connect((state) => {
+export default connect(({ authedUser, polls }) => {
+	const done = Object.keys(authedUser.answers);
+	const all = Object.keys(polls);
+	const undone = all.filter((x) => !done.includes(x));
+
 	return {
-		polls: state.polls,
-		authedUser: state.authedUser,
+		done,
+		undone,
 	};
 })(Dashboard);

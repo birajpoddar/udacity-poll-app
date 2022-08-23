@@ -12,3 +12,7 @@ export const _getFormattedUsers = async () => {
 
 	return Promise.resolve(usersObj);
 };
+
+export const sortDateDecending = (a, b) => {
+	return b.timestamp - a.timestamp;
+};

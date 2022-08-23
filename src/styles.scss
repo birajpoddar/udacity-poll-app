@@ -55,3 +55,20 @@
 	background-color: #ffffffaa;
 	backdrop-filter: blur(20px);
 }
+
+// Text underline
+.text-underline {
+	text-decoration: underline;
+
+	:hover {
+		color: grey;
+	}
+}
+
+.btn-login {
+	min-width: 100%;
+}
+
+.mh-150px {
+	min-height: 150px !important;
+}

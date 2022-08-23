@@ -1,9 +1,13 @@
 import { connect } from 'react-redux';
-import { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 import { loadData } from '../actions/shared';
 import Login from './Login';
 import Dashboard from './Dashboard';
 import { Loading } from './presentation/Loading';
+import { Route, Routes } from 'react-router-dom';
+import Header from './Header';
+import NewPoll from './NewPoll';
+import Leaderboard from './Leaderboard';
 
 // bootstrap
 
@@ -12,33 +16,58 @@ const App = (props) => {
 		props.dispatch(loadData());
 	}, []);
 
-	if (!props.loading) {
-		return <Loading />;
-	}
+	// const navigate = useNavigate();
 
-	if (props.authedUser === null) {
-		return <Login />;
-	}
+	return (
+		<Fragment>
+			{props.loading === false ? (
+				<Loading />
+			) : props.authedUser === null ? (
+				<Login />
+			) : (
+				<Routes>
+					<Route
+						path="/"
+						exact
+						element={
+							<Fragment>
+								<Header />
+								<Dashboard />
+							</Fragment>
+						}
+					/>
+					<Route
+						path="/new"
+						element={
+							<Fragment>
+								<Header />
+								<NewPoll />
+							</Fragment>
+						}
+					/>
+					<Route
+						path="/leaderboard"
+						element={
+							<Fragment>
+								<Header />
+								<Leaderboard />
+							</Fragment>
+						}
+					/>
+				</Routes>
+			)}
+		</Fragment>
+	);
 
-	return <Dashboard />;
+	// if (!props.loading) {
+	// 	return <Loading />;
+	// }
 
-	// return (
-	// 	<div className="App">
-	// 		<header className="App-header">
-	// 			<p>
-	// 				Edit <code>src/App.js</code> and save to reload.
-	// 			</p>
-	// 			<a
-	// 				className="App-link"
-	// 				href="https://reactjs.org"
-	// 				target="_blank"
-	// 				rel="noopener noreferrer"
-	// 			>
-	// 				Learn React
-	// 			</a>
-	// 		</header>
-	// 	</div>
-	// );
+	// if (props.authedUser === null) {
+	// 	return <Login />;
+	// }
+
+	// return <Dashboard />;
 };
 
 export default connect((state) => ({

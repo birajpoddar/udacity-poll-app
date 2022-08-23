@@ -9,10 +9,6 @@
 	font-size: 1.8rem;
 }
 
-.btn-login {
-	min-width: 100%;
-}
-
 .bg-light {
 	--bs-bg-opacity: 0.6;
 	backdrop-filter: blur(12px);
@@ -25,20 +21,16 @@ img.navbar-brand {
 	padding: unset;
 }
 
-.navbar-brand {
-	text-transform: uppercase;
-}
-
 .navbar-nav {
 	flex-direction: row;
 	column-gap: 20px;
 	--bs-bg-opacity: 0.7;
 }
 
-.nav-link {
-	text-transform: uppercase;
-}
-
 .d-flex {
 	flex-direction: row;
 }
+
+// .btn {
+// 	backdrop-filter: blur('20px');
+// }

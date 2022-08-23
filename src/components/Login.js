@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import { validateLogin } from '../actions/authedUser';
-import { _getUsers } from '../utils/_DATA';
 import CustomButton from './presentation/CustomButton';
 import CustomInput from './presentation/CustomInput';
 
@@ -22,8 +21,9 @@ const Login = (props) => {
 		const user = document.getElementById('inputUser').value;
 		const pass = document.getElementById('inputPass').value;
 
-		const users = props.users;
-		props.dispatch(validateLogin({ user, pass, users }, invalidateUser));
+		props.dispatch(
+			validateLogin({ user, pass, users: props.users }, invalidateUser)
+		);
 	};
 
 	return (

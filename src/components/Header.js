@@ -1,8 +1,16 @@
-import { logoutUser } from '../../actions/authedUser';
+import { logoutUser } from '../actions/authedUser';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 const Header = (props) => {
+	const logout = (e) => {
+		e.preventDefault();
+
+		props.dispatch(logoutUser());
+	};
+
 	return (
-		<nav className="navbar sticky-top bg-light">
+		<nav className="navbar sticky-top bg-light text-uppercase">
 			<div className="container">
 				<div className="d-flex">
 					<ul className="navbar-nav">
@@ -15,10 +23,11 @@ const Header = (props) => {
 								height: '40px',
 								border: '3px solid teal',
 								zIndex: 1,
+								boxShadow: '1px 0px 2px 0px #000000aa',
 							}}
 						/>
 						<div
-							className="badge bg-danger opacity-40 nav-link"
+							className="badge bg-danger opacity-30 nav-link"
 							style={{
 								marginLeft: '-60px',
 								paddingLeft: '30px',
@@ -27,31 +36,33 @@ const Header = (props) => {
 							href="#"
 						>
 							<a
+								onClick={logout}
 								className="nav-link"
 								href="#"
-								onClick={props.logout}
 								style={{ zIndex: 2, paddingTop: '10px' }}
 							>
 								Logout
 							</a>
 						</div>
-						<a className="navbar-brand" href="#">
+						<Link to="/" className="navbar-brand">
 							Home
-						</a>
+						</Link>
 					</ul>
 				</div>
 				<div className="d-flex">
 					<ul className="navbar-nav">
 						<li className="navbar-item">
-							<a className="nav-link" href="#">
+							<Link className="nav-link" to="/new">
 								New Poll
-							</a>
+							</Link>
 						</li>
-						<li style={{ fontSize: 'x-large' }}>◉</li>
+						<li style={{ fontSize: 'x-large', color: 'dimgrey', zIndex: -1 }}>
+							◉
+						</li>
 						<li className="navbar-item">
-							<a className="nav-link" href="#">
+							<Link className="nav-link" to="/leaderboard">
 								Leaderboard
-							</a>
+							</Link>
 						</li>
 					</ul>
 				</div>
@@ -60,4 +71,7 @@ const Header = (props) => {
 	);
 };
 
-export default Header;
+export default connect(({ authedUser }) => ({
+	avatar: authedUser.avatarURL,
+	name: authedUser.name,
+}))(Header);
