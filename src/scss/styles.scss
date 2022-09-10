@@ -44,6 +44,43 @@
 	--bs-bg-opacity: 0;
 }
 
+// Font weight classes
+.font-weight-100 {
+	font-weight: 100;
+}
+
+.font-weight-200 {
+	font-weight: 200;
+}
+
+.font-weight-300 {
+	font-weight: 300;
+}
+
+.font-weight-400 {
+	font-weight: 400;
+}
+
+.font-weight-500 {
+	font-weight: 500;
+}
+
+.font-weight-600 {
+	font-weight: 600;
+}
+
+.font-weight-700 {
+	font-weight: 700;
+}
+
+.font-weight-800 {
+	font-weight: 800;
+}
+
+.font-weight-900 {
+	font-weight: 900;
+}
+
 // Hide validation error
 .hide-background {
 	border: unset;
@@ -71,4 +108,34 @@
 
 .mh-150px {
 	min-height: 150px !important;
+}
+
+.mh-250px {
+	min-height: 250px !important;
+}
+
+.w-45-perc {
+	width: 45% !important;
+}
+
+.hide-sm-under {
+	@extend .d-none;
+	@extend .d-xl-block;
+}
+
+.container-header {
+	text-transform: uppercase;
+	font-weight: 100;
+}
+
+.poll-option {
+	text-transform: uppercase;
+	font-weight: 300;
+	font-size: large;
+	transition: all 0.3s ease;
+
+	&:disabled {
+		background-color: var(--bs-gray-600) !important;
+		color: var(--bs-gray-500);
+	}
 }

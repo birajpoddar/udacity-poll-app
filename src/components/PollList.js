@@ -1,29 +1,34 @@
 import { connect } from 'react-redux';
 import { sortDateDecending } from '../utils/dataFormatter';
+import Container from './presentation/Container';
 import Poll from './presentation/Poll';
 
 const PollList = (props) => {
+	if (props.polls.length === 0)
+		return (
+			<Container title={props.title}>
+				<p className="text-center m-3 font-weight-400 text-uppercase">
+					No Poll(s) needs your attention
+				</p>
+			</Container>
+		);
+
 	return (
-		<div className="card container mt-4 mb-4 p-0">
-			<div className="card-header container">
-				<h1 className="display-6">{props.title}</h1>
-			</div>
-			<div className="card-body">
-				<table className="table table-striped">
-					<thead>
-						<tr>
-							<th>Poll By</th>
-							<th>Date Posted</th>
-						</tr>
-					</thead>
-					<tbody>
-						{props.polls.map((poll) => {
-							return <Poll key={poll.id} id={poll.id}></Poll>;
-						})}
-					</tbody>
-				</table>
-			</div>
-		</div>
+		<Container title={props.title}>
+			<table className="table table-striped m-0 font-weight-400">
+				<thead>
+					<tr className="text-uppercase">
+						<th className="font-weight-500">Poll By</th>
+						<th className="font-weight-500 text-end">Date Posted</th>
+					</tr>
+				</thead>
+				<tbody>
+					{props.polls.map((poll) => {
+						return <Poll key={poll.id} id={poll.id}></Poll>;
+					})}
+				</tbody>
+			</table>
+		</Container>
 	);
 };
 

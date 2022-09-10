@@ -3,6 +3,7 @@ import {
 	LOAD_DATA,
 	LOGGED_OUT,
 	NEW_POLL,
+	SAVE_POLL,
 } from '../actions/constants';
 
 export default function authedUser(state = null, action) {
@@ -16,6 +17,14 @@ export default function authedUser(state = null, action) {
 			return {
 				...state,
 				questions: [...state.questions, action.poll.id],
+			};
+		case SAVE_POLL:
+			return {
+				...state,
+				answers: {
+					...state.answers,
+					[action.poll.qid]: action.poll.answer,
+				},
 			};
 		default:
 			return state;

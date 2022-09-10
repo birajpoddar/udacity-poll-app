@@ -9,6 +9,9 @@ import Header from './Header';
 import NewPoll from './NewPoll';
 import Leaderboard from './Leaderboard';
 import PageNotFound from './presentation/PageNotFound';
+import PollVote from './presentation/PollVote';
+import PollResult from './presentation/PollResult';
+import PollVoteResult from './presentation/PollVoteResult';
 
 // bootstrap
 
@@ -55,6 +58,16 @@ const App = (props) => {
 							</Fragment>
 						}
 					/>
+					<Route
+						path="/questions/:id"
+						element={
+							<Fragment>
+								<Header />
+								<PollVoteResult />
+							</Fragment>
+						}
+					/>
+
 					<Route
 						path="*"
 						element={

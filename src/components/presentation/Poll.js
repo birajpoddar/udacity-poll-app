@@ -5,14 +5,11 @@ const Poll = (props) => {
 	return (
 		<tr id={props.id}>
 			<td>
-				<Link
-					to={'/questions/:' + props.id}
-					className="nav-link text-underline"
-				>
+				<Link to={'/questions/' + props.id} className="nav-link text-underline">
 					{props.author}
 				</Link>
 			</td>
-			<td>{props.date}</td>
+			<td className="text-end">{props.date}</td>
 		</tr>
 	);
 };
