@@ -1,16 +1,20 @@
+import { createRef } from 'react';
 import { connect } from 'react-redux';
 import { validateLogin } from '../actions/authedUser';
-import CustomButton from './presentation/CustomButton';
 import CustomInput from './presentation/CustomInput';
 
 const Login = (props) => {
+	const userRef = createRef();
+	const passRef = createRef();
+	const valiRef = createRef();
+
 	const invalidateUser = () => {
 		// Clear entered values
-		document.getElementById('inputUser').value = '';
-		document.getElementById('inputPass').value = '';
+		userRef.current.value = '';
+		passRef.current.value = '';
 
 		// Show Error Message
-		const valEl = document.getElementById('validation-message');
+		const valEl = valiRef.current;
 		valEl.classList.remove('alert-light');
 		valEl.classList.remove('hide-background');
 		valEl.classList.add('alert-danger');
@@ -18,8 +22,8 @@ const Login = (props) => {
 	};
 
 	const loginUser = () => {
-		const user = document.getElementById('inputUser').value;
-		const pass = document.getElementById('inputPass').value;
+		const user = userRef.current.value;
+		const pass = passRef.current.value;
 
 		props.dispatch(
 			validateLogin({ user, pass, users: props.users }, invalidateUser)
@@ -30,24 +34,35 @@ const Login = (props) => {
 		<div id="loginPanel">
 			<div className="card text-bg" style={{ minWidth: '20rem' }}>
 				<div className="card-header">
-					<h1 className="display-6 text-uppercase">Employee Poll Login</h1>
+					<h1 className="display-6 text-uppercase font-weight-200">
+						Employee Poll Login
+					</h1>
 				</div>
 				<div className="card-body">
 					<div
 						id="validation-message"
 						className="alert alert-light text-center hide-background"
 						role="alert"
+						ref={valiRef}
 					>
 						{' '}
 					</div>
-					<CustomInput title="☺︎" id="inputUser" placeholder="Username" />
+					<CustomInput
+						title="☺︎"
+						id="inputUser"
+						placeholder="Username"
+						ref={userRef}
+					/>
 					<CustomInput
 						title="✲"
 						id="inputPass"
 						placeholder="Password"
 						type="password"
+						ref={passRef}
 					/>
-					<CustomButton placeholder="LOGIN" click={loginUser} />
+					<button className="btn btn-success btn-login" onClick={loginUser}>
+						LOGIN
+					</button>
 				</div>
 			</div>
 		</div>

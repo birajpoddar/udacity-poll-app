@@ -9,9 +9,7 @@ import Header from './Header';
 import NewPoll from './NewPoll';
 import Leaderboard from './Leaderboard';
 import PageNotFound from './presentation/PageNotFound';
-import PollVote from './presentation/PollVote';
-import PollResult from './presentation/PollResult';
-import PollVoteResult from './presentation/PollVoteResult';
+import PollVoteResult from './PollVoteResult';
 
 // bootstrap
 

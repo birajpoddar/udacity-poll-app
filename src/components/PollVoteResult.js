@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import PollingContainer from './PollingContainer';
+import PollingContainer from './presentation/PollingContainer';
 import PollVote from './PollVote';
 import PollResult from './PollResult';
 

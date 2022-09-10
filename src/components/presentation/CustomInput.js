@@ -1,4 +1,6 @@
-const CustomInput = (props) => {
+import { forwardRef } from 'react';
+
+const CustomInput = forwardRef((props, ref) => {
 	return (
 		<div className="input-group mb-3">
 			<span className="input-group-text">{props.title ?? '@'}</span>
@@ -7,12 +9,13 @@ const CustomInput = (props) => {
 					type={props.type ?? 'text'}
 					className="form-control"
 					id={props.id}
+					ref={ref}
 					placeholder={props.placeholder}
 				/>
 				<label htmlFor={props.id}>{props.placeholder}</label>
 			</div>
 		</div>
 	);
-};
+});
 
 export default CustomInput;

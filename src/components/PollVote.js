@@ -1,6 +1,6 @@
 import { createRef } from 'react';
 import { connect } from 'react-redux';
-import { handlePollAnswer } from '../../actions/polls';
+import { handlePollAnswer } from '../actions/polls';
 
 const PollVote = (props) => {
 	const optionOne = createRef();
