@@ -3,7 +3,7 @@ import { Fragment, useEffect } from 'react';
 import { loadData } from '../actions/shared';
 import Login from './Login';
 import Dashboard from './Dashboard';
-import { Loading } from './presentation/Loading';
+import Loading from './presentation/Loading';
 import { Route, Routes } from 'react-router-dom';
 import Header from './Header';
 import NewPoll from './NewPoll';

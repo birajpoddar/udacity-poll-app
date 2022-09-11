@@ -34,7 +34,7 @@ const Login = (props) => {
 		<div id="loginPanel">
 			<div className="card text-bg" style={{ minWidth: '20rem' }}>
 				<div className="card-header">
-					<h1 className="display-6 text-uppercase font-weight-200">
+					<h1 className="display-6 text-uppercase font-weight-100">
 						Employee Poll Login
 					</h1>
 				</div>
