@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { sortDateDecending } from '../utils/dataFormatter';
 import Container from './presentation/Container';
-import Poll from './presentation/Poll';
+import Poll from './Poll';
 
 const PollList = (props) => {
 	if (props.polls.length === 0)
@@ -15,7 +15,7 @@ const PollList = (props) => {
 
 	return (
 		<Container title={props.title}>
-			<table className="table table-striped m-0 font-weight-400">
+			<table className="table table-striped m-0 font-weight-400 mb-1">
 				<thead>
 					<tr className="text-uppercase">
 						<th className="font-weight-500">Poll By</th>
@@ -24,7 +24,7 @@ const PollList = (props) => {
 				</thead>
 				<tbody>
 					{props.polls.map((poll) => {
-						return <Poll key={poll.id} id={poll.id}></Poll>;
+						return <Poll key={poll.id} id={poll.id} />;
 					})}
 				</tbody>
 			</table>

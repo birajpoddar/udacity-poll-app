@@ -1,4 +1,6 @@
 import { connect } from 'react-redux';
+import AvatarResultImg from './presentation/AvatarResultImg';
+import PollResultRow from './presentation/PollResultRow';
 
 const PollResult = (props) => {
 	const optionOneResult = `Votes: ${props.optionOne.votes}, Percentage: ${props.optionOne.percentage}%`;
@@ -6,29 +8,18 @@ const PollResult = (props) => {
 
 	return (
 		<div>
-			<div
-				className="d-flex justify-content-around align-items-end mt-3"
-				style={{ gap: '50px' }}
-			>
+			<PollResultRow>
+				<h2 name="optionOne">#1</h2>
+				<h2 name="optionTwo">#2</h2>
+			</PollResultRow>
+			<PollResultRow style={{ minHeight: '170px' }}>
 				<div
 					name="optionOne"
 					className="p-3 pb-0 text-center text-uppercase w-45-perc"
 				>
 					<div>
 						{props.optionOne.voted ? (
-							<img
-								src={props.user.avatar}
-								alt={props.user.name}
-								className="navbar-brand"
-								style={{
-									borderRadius: '50%',
-									height: '40px',
-									border: '3px solid var(--bs-gray-600)',
-									zIndex: 1,
-									boxShadow: '1px 0px 2px 0px #000000aa',
-									marginBottom: '-20px',
-								}}
-							/>
+							<AvatarResultImg user={props.user} />
 						) : null}
 					</div>
 					<div
@@ -50,19 +41,7 @@ const PollResult = (props) => {
 				>
 					<div>
 						{props.optionTwo.voted ? (
-							<img
-								src={props.user.avatar}
-								alt={props.user.name}
-								className="navbar-brand"
-								style={{
-									borderRadius: '50%',
-									height: '40px',
-									border: '3px solid var(--bs-gray-600)',
-									zIndex: 1,
-									boxShadow: '1px 0px 2px 0px #000000aa',
-									marginBottom: '-20px',
-								}}
-							/>
+							<AvatarResultImg user={props.user} />
 						) : null}
 					</div>
 					<div
@@ -78,16 +57,24 @@ const PollResult = (props) => {
 						</h6>
 					</div>
 				</div>
-			</div>
-			<div
-				className="d-flex justify-content-around align-items-top mb-3"
-				style={{ gap: '50px' }}
+			</PollResultRow>
+			<PollResultRow
+				ref={(el) => {
+					if (el) {
+						el.classList.remove('mt-3');
+						el.classList.remove('align-items-end');
+					}
+				}}
 			>
 				<div
 					name="optionOne"
 					className="p-3 pt-0 text-center text-uppercase w-45-perc"
+					style={{ display: 'flex' }}
 				>
-					<div className="p-2" style={{ border: '1px solid var(--bs-orange)' }}>
+					<div
+						className="p-2"
+						style={{ border: '1px solid var(--bs-orange)', flex: 1 }}
+					>
 						<p>{optionOneResult}</p>
 						<hr />
 						<h6>{props.optionOne.title}</h6>
@@ -96,23 +83,25 @@ const PollResult = (props) => {
 				<div
 					name="optionTwo"
 					className="p-3 pt-0 text-center text-uppercase w-45-perc"
+					style={{ display: 'flex' }}
 				>
-					<div className="p-2" style={{ border: '1px solid var(--bs-teal)' }}>
+					<div
+						className="p-2"
+						style={{ border: '1px solid var(--bs-teal)', flex: 1 }}
+					>
 						<p>{optionTwoResult}</p>
 						<hr />
 						<h6>{props.optionTwo.title}</h6>
 					</div>
 				</div>
-			</div>
-			<div
-				className="d-flex justify-content-around align-items-center mb-3 p-3 text-uppercase"
-				style={{ gap: '50px', color: 'var(--bs-gray-600)' }}
-			>
+			</PollResultRow>
+			<hr />
+			<PollResultRow>
 				<h6 className="mb-0">Total Votes: {props.stats.votes}</h6>
 				<h6 className="mb-0">
-					Your Vote: {props.stats.voted === 'optionOne' ? '#1' : '#2'}
+					My Vote: {props.stats.voted === 'optionOne' ? '#1' : '#2'}
 				</h6>
-			</div>
+			</PollResultRow>
 		</div>
 	);
 };
