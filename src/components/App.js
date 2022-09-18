@@ -39,7 +39,7 @@ const App = (props) => {
 						}
 					/>
 					<Route
-						path="/new"
+						path="/add"
 						element={
 							<Fragment>
 								<Header />

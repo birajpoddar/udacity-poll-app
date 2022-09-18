@@ -11,6 +11,7 @@ const CustomInput = forwardRef((props, ref) => {
 					id={props.id}
 					ref={ref}
 					placeholder={props.placeholder}
+					data-testid={props.id}
 				/>
 				<label htmlFor={props.id}>{props.placeholder}</label>
 			</div>

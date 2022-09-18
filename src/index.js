@@ -2,14 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './scss/index.scss';
 import App from './components/App';
-import reducer from './reducers';
-import middlewares from './middlewares';
-
+import store from './app/store';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 import { BrowserRouter } from 'react-router-dom';
-
-export const store = createStore(reducer, middlewares);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

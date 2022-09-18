@@ -10,7 +10,9 @@ const Header = (props) => {
 	};
 
 	return (
-		<nav className="navbar sticky-top bg-light text-uppercase">
+		<nav
+			className="navbar sticky-top bg-light text-uppercase"
+			data-testid="header">
 			<div className="container">
 				<div className="d-flex">
 					<ul className="navbar-nav">
@@ -33,14 +35,12 @@ const Header = (props) => {
 								paddingLeft: '30px',
 								verticalAlign: 'middle',
 							}}
-							href="#"
-						>
+							href="#">
 							<a
 								onClick={logout}
 								className="nav-link"
 								href="#"
-								style={{ zIndex: 2, paddingTop: '10px' }}
-							>
+								style={{ zIndex: 2, paddingTop: '10px' }}>
 								Logout
 							</a>
 						</div>
@@ -52,7 +52,7 @@ const Header = (props) => {
 				<div className="d-flex">
 					<ul className="navbar-nav">
 						<li className="navbar-item">
-							<Link className="nav-link" to="/new">
+							<Link className="nav-link" to="/add">
 								New Poll
 							</Link>
 						</li>

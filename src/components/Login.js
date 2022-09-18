@@ -43,8 +43,8 @@ const Login = (props) => {
 						id="validation-message"
 						className="alert alert-light text-center hide-background"
 						role="alert"
-						ref={valiRef}
-					>
+						data-testid="validationMessage"
+						ref={valiRef}>
 						{' '}
 					</div>
 					<CustomInput
@@ -60,7 +60,10 @@ const Login = (props) => {
 						type="password"
 						ref={passRef}
 					/>
-					<button className="btn btn-success btn-login" onClick={loginUser}>
+					<button
+						className="btn btn-success btn-login"
+						data-testid="buttonLogin"
+						onClick={loginUser}>
 						LOGIN
 					</button>
 				</div>
