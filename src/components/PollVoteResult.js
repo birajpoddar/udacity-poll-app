@@ -3,11 +3,11 @@ import { useParams } from 'react-router-dom';
 import PollingContainer from './presentation/PollingContainer';
 import PollVote from './PollVote';
 import PollResult from './PollResult';
-import PageNotFound from './presentation/PageNotFound';
+import Navigate from './presentation/Navigate';
 
 const PollVoteResult = (props) => {
-	if (props.id === null) {
-		return <PageNotFound />;
+	if (!props.id) {
+		return <Navigate to="/404" />;
 	}
 
 	return (
@@ -25,10 +25,8 @@ export default connect(({ polls, authedUser }, props) => {
 	const { id } = useParams();
 	const poll = polls[id];
 
-	if (poll === undefined) {
-		return {
-			id: null,
-		};
+	if (!poll) {
+		return {};
 	}
 
 	const vote = authedUser.answers[id];

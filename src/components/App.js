@@ -10,6 +10,7 @@ import NewPoll from './NewPoll';
 import Leaderboard from './Leaderboard';
 import PageNotFound from './presentation/PageNotFound';
 import PollVoteResult from './PollVoteResult';
+import Navigate from './presentation/Navigate';
 
 // bootstrap
 
@@ -17,8 +18,6 @@ const App = (props) => {
 	useEffect(() => {
 		props.dispatch(loadData());
 	}, []);
-
-	// const navigate = useNavigate();
 
 	return (
 		<Fragment>
@@ -67,7 +66,7 @@ const App = (props) => {
 					/>
 
 					<Route
-						path="*"
+						path="404"
 						element={
 							<Fragment>
 								<Header />
@@ -75,6 +74,8 @@ const App = (props) => {
 							</Fragment>
 						}
 					/>
+
+					<Route path="*" element={<Navigate to="/404"></Navigate>} />
 				</Routes>
 			)}
 		</Fragment>
