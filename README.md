@@ -1,6 +1,4 @@
-# Employee Polling App
-
-## DESCRIPTION
+# EMPLOYEE POLLING APP
 
 An intranet employee polling web app developed using React & Redux for employees to create polls and vote for their favourite options.
 
@@ -9,7 +7,7 @@ An intranet employee polling web app developed using React & Redux for employees
 - Adobe XD - Designing UI/UX
 - VS Code - Development Environment/Terminal
 - NodeJS - Development Framework
-- NPM - Packege Management Tool
+- NPM - Package Management Tool
 - create-react-app npx tool - React App Bootstrapper
   - React - JavaScript Library for developing the frontend
   - Redux - State Management Library
@@ -40,6 +38,7 @@ Fire up a terminal and follow along
 ##### First make a directory to store the codebase on your linux/mac machine
 
 `$ mkdir <directory-name>`
+
 `$ cd <directory-name>`
 
 ##### Clone/download the project from [here](https://github.com/birajpoddar/udacity-poll-app) and wait for some time for the process to complete
@@ -53,16 +52,19 @@ Fire up a terminal and follow along
 ##### Once on the project directory, you need to first install the node_modules and wait for sometime to finish the installation
 
 `$ npm i` for npm users
+
 `$ yarn install` or simpley `$ yarn` for yarn users
 
 ##### When all dependencies have been installed, fire up the app
 
 `$ npm start` for npm users
+
 `$ yarn run start` for yarn users
 
 ##### You can also test the application
 
 `$ npm test` for npm users
+
 `$ yarn run test` for yarn users
 
 > In case no test is executed, please press `a` to run all tests.
