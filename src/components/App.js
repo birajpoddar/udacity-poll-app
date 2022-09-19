@@ -70,6 +70,7 @@ const App = (props) => {
 						path="*"
 						element={
 							<Fragment>
+								<Header />
 								<PageNotFound />
 							</Fragment>
 						}
