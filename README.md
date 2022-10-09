@@ -1,4 +1,7 @@
-# EMPLOYEE POLLING APP
+# EMPLOYEE POLLING APP 
+[![App](https://img.shields.io/website?label=app&logo=netlify&logoColor=green&style=for-the-badge&up_color=green&url=https%3A%2F%2Fpolls.delabs.co.in)](https://polls.delabs.co.in)
+[![Netlify](https://img.shields.io/netlify/5f02e453-ddcb-4d8b-8a9c-e335511402c3?label=app&logo=netlify&logoColor=success&style=for-the-badge)](https://app.netlify.com/sites/employee-polling-app/deploys)
+[![Issues](https://img.shields.io/github/issues/birajpoddar/udacity-poll-app?logo=github&logoColor=yellow&style=for-the-badge)](https://github.com/birajpoddar/udacity-poll-app/issues)
 
 An intranet employee polling web app developed using React & Redux for employees to create polls and vote for their favourite options.
 
