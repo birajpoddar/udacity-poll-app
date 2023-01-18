@@ -69,6 +69,10 @@ const Login = (props) => {
 				</div>
 			</div>
 		</div>
+		<div style={{display: 'flex', justifyContent: 'center', backgroundColor: '#eeeeee96'}}>
+			Please login using test credentials-
+			<i>sarahedo/password123</i>
+		</div>
 	);
 };
 
