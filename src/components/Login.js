@@ -31,47 +31,49 @@ const Login = (props) => {
 	};
 
 	return (
-		<div id="loginPanel">
-			<div className="card text-bg" style={{ minWidth: '20rem' }}>
-				<div className="card-header">
-					<h1 className="display-6 text-uppercase font-weight-100">
-						Employee Poll Login
-					</h1>
-				</div>
-				<div className="card-body">
-					<div
-						id="validation-message"
-						className="alert alert-light text-center hide-background"
-						role="alert"
-						data-testid="validationMessage"
-						ref={valiRef}>
-						{' '}
+		<div>
+			<div id="loginPanel">
+				<div className="card text-bg" style={{ minWidth: '20rem' }}>
+					<div className="card-header">
+						<h1 className="display-6 text-uppercase font-weight-100">
+							Employee Poll Login
+						</h1>
 					</div>
-					<CustomInput
-						title="☺︎"
-						id="inputUser"
-						placeholder="Username"
-						ref={userRef}
-					/>
-					<CustomInput
-						title="✲"
-						id="inputPass"
-						placeholder="Password"
-						type="password"
-						ref={passRef}
-					/>
-					<button
-						className="btn btn-success btn-login"
-						data-testid="buttonLogin"
-						onClick={loginUser}>
-						LOGIN
-					</button>
+					<div className="card-body">
+						<div
+							id="validation-message"
+							className="alert alert-light text-center hide-background"
+							role="alert"
+							data-testid="validationMessage"
+							ref={valiRef}>
+							{' '}
+						</div>
+						<CustomInput
+							title="☺︎"
+							id="inputUser"
+							placeholder="Username"
+							ref={userRef}
+						/>
+						<CustomInput
+							title="✲"
+							id="inputPass"
+							placeholder="Password"
+							type="password"
+							ref={passRef}
+						/>
+						<button
+							className="btn btn-success btn-login"
+							data-testid="buttonLogin"
+							onClick={loginUser}>
+							LOGIN
+						</button>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div style={{display: 'flex', justifyContent: 'center', backgroundColor: '#eeeeee96'}}>
-			Please login using test credentials-
-			<i>sarahedo/password123</i>
+			<div style={{display: 'flex', justifyContent: 'center', backgroundColor: '#eeeeee96'}}>
+				Please login using test credentials-
+				<i>sarahedo/password123</i>
+			</div>
 		</div>
 	);
 };
